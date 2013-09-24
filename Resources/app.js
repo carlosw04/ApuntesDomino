@@ -5,7 +5,7 @@ Titanium.UI.setBackgroundColor('#000');
 var tabGroup = Titanium.UI.createTabGroup();
 
 
-//
+//..
 // create base UI tab and root window
 //
 var win1 = Titanium.UI.createWindow({  
