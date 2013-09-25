@@ -10,7 +10,9 @@ var tabGroup = Titanium.UI.createTabGroup();
 //
 // creamos el tab principal y le asignamos la ventana de insertar
 //
-var win1 = insertarWin();
+var win1 = insertar();
+
+var win = Ti.UI.createWindow();
 
 var tab1 = Titanium.UI.createTab({
     icon:'KS_nav_views.png',
@@ -26,7 +28,7 @@ var tab1 = Titanium.UI.createTab({
 var tab2 = Titanium.UI.createTab({
     icon:'KS_nav_ui.png',
     title:'Listar',
-    window:win1
+    window:win
 });
 
 //
