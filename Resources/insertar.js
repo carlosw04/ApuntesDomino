@@ -45,7 +45,7 @@ var insertar = function(){
 		}
 
 		//insertamos dev en la bd
-		insertarDev({
+		insertarjugador({
 			Name1:Pareja1.value,
 			Name2:Pareja2.value,
 			

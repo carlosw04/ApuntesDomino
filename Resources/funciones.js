@@ -1,5 +1,5 @@
 //insertar developers en la db
-var insertarDev = function(datos) {
+var insertarjugador = function(datos) {
 	if( typeof (datos) === 'object') {
 		try {
 

@@ -1,5 +1,5 @@
 //incluimos demas ventanas y utilidades
-Titanium.include('insertar.js');
+Titanium.include('insertar.js','funciones.js');
 
 // background color del master window
 Titanium.UI.setBackgroundColor('#fff');
