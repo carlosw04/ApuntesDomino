@@ -1,5 +1,5 @@
 //incluimos demas ventanas y utilidades
-Titanium.include('insertar.js','funciones.js');
+Titanium.include('insertar.js','funciones.js','listar.js');
 
 // background color del master window
 Titanium.UI.setBackgroundColor('#fff');
@@ -23,12 +23,12 @@ var tab1 = Titanium.UI.createTab({
 //
 // creamos otro tab y le asignamos la ventana de listar
 //
-//var win2 = listarWin();
+var win2 = listarWin();
 
 var tab2 = Titanium.UI.createTab({
     icon:'KS_nav_ui.png',
     title:'Listar',
-    window:win
+    window:win2
 });
 
 //
