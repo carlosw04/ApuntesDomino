@@ -18,23 +18,23 @@ var insertar = function(){
 		image : 'Image/logo.png',
 		width : 128,
 		height : 88,
-		top : 300,
-		center:{x:(win.width/2),y:75}
+		top : 10,
+		center:{x:(win.width/2),y:320}
 	});
 	
 	win.add(logo);
 	
 	// Creamos Los FieldSet para meter los datos :D
 	
-	var Pareja1 = Ti.UI.createTextField({hintText:'Primera Pareja',width:300,height:30,top:130,left:10,borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
-	var Pareja2 = Ti.UI.createTextField({hintText:'Segunda Pareja',width:300,height:30,top:170,left:10,borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
+	var Pareja1 = Ti.UI.createTextField({hintText:'Primera Pareja',width:300,height:75,top:110,left:10,borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
+	var Pareja2 = Ti.UI.createTextField({hintText:'Segunda Pareja',width:300,height:75,top:190,left:10,borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
 	
 	vista.add(Pareja1);
 	vista.add(Pareja2);
 	
 	
 		//creamos el boton de insertar
-	var insertar_btn = Ti.UI.createButton({title:'Insertar', width:200,height:40,center:{x:(win.width/2),y:320},borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
+	var insertar_btn = Ti.UI.createButton({title:'Insertar', width:200,height:70,center:{x:(win.width/2),y:320},borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
 	vista.add(insertar_btn);
 
 	//click

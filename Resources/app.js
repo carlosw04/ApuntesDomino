@@ -15,7 +15,7 @@ var win1 = insertar();
 var win = Ti.UI.createWindow();
 
 var tab1 = Titanium.UI.createTab({
-    icon:'KS_nav_views.png',
+    icon:'Image/KS_nav_views.png',
     title:'Insertar',
     window:win1
 });
@@ -26,7 +26,7 @@ var tab1 = Titanium.UI.createTab({
 var win2 = listar();
 
 var tab2 = Titanium.UI.createTab({
-    icon:'KS_nav_ui.png',
+    icon:'Image/KS_nav_ui.png',
     title:'Listar',
     window:win2
 });
