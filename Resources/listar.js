@@ -26,6 +26,7 @@ var listar = function() {
 	});
 
 	//agregamos el tableview a la ventana actual
+	
 	win.add(tableview);
 
 	//cargamos la lista
@@ -87,11 +88,15 @@ var listar = function() {
 				color : '#000111'
 			});
 
-			
+			var btn_delete = Ti.UI.createImageView({
+				url: 'Image/delete-icon.jpg'
+				
+				});
 
 			//agremos labels al row
 			row.add(nombre_completos);
 			row.add(fecha);
+			row.add(btn_delete);
 	
 			datos.push(row);
 

@@ -26,8 +26,8 @@ var insertar = function(){
 	
 	// Creamos Los FieldSet para meter los datos :D
 	
-	var Pareja1 = Ti.UI.createTextField({hintText:'Primera Pareja',width:300,height:75,top:110,left:10,borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
-	var Pareja2 = Ti.UI.createTextField({hintText:'Segunda Pareja',width:300,height:75,top:190,left:10,borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
+	var Pareja1 = Ti.UI.createTextField({clearOnEdit:true,autocorrect:true, hintText:'Primera Pareja',width:300,height:75,top:110,left:10,borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
+	var Pareja2 = Ti.UI.createTextField({clearOnEdit:true,autocorrect:true, hintText:'Segunda Pareja',width:300,height:75,top:190,left:10,borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
 	
 	vista.add(Pareja1);
 	vista.add(Pareja2);

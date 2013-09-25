@@ -22,3 +22,9 @@ var insertarjugador = function(datos) {
 };
 
 
+var Limpiar = function(datos){
+	
+	
+	
+	
+};
