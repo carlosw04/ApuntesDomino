@@ -83,20 +83,24 @@ var listar = function() {
 				top : 30,
 				textAlign : 'left',
 				font : {
-					fontSize : 15
+				fontSize : 15
 				},
 				color : '#000111'
 			});
 
-			var btn_delete = Ti.UI.createImageView({
-				url: 'Image/delete-icon.jpg'
-				
-				});
+		
+				var btn_delete = Ti.UI.createButton({
+					right: 10,
+					height: 50,
+					width: 95,
+					title: 'Eliminar'
+			});
 
 			//agremos labels al row
 			row.add(nombre_completos);
 			row.add(fecha);
 			row.add(btn_delete);
+			
 	
 			datos.push(row);
 
@@ -113,7 +117,7 @@ var listar = function() {
 
 
 //eliminar en la db
-var eliminarDev = function(Jugada_id) {
+var eliminar = function(Jugada_id) {
 
 	if( typeof (Jugada_id) != 'number') {
 		return false;
@@ -147,14 +151,20 @@ var eliminarDev = function(Jugada_id) {
 		//cargamos la lista
 		cargarLista();
 	});
+	
+/*	tableview.btn_eliminar.addEventListener('click',function(e){
+		
+		eliminar(e.rowData.dev_id);
+		
+	});*/
+	
 	//delete eventlistener
 	tableview.addEventListener('delete', function(e) {
-		var resultado = eliminarDev(e.rowData.dev_id);
+		var resultado = eliminar(e.rowData.dev_id);
 	});
 	//eliminar click event
-	Eliminar_btn.addEventListener('click', function(e) {
-		win.rightNavButton = Listo_btn;
-		tableview.editing = true;
+	tableview.addEventListener('click', function(e) {
+		var resultado = eliminar(e.rowData.Jugada_id);
 	});
 	//listo click event
 	Listo_btn.addEventListener('click', function(e) {
