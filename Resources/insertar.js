@@ -45,11 +45,16 @@ var insertar = function(){
 		}
 
 		//insertamos dev en la bd
+		
 		insertarjugador({
 			Name1:Pareja1.value,
 			Name2:Pareja2.value,
 			
 		});
+		
+		
+		
+		
 	});
 
 	win.addEventListener('focus', function(e) {
