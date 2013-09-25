@@ -1,4 +1,4 @@
-//insertar developers en la db
+//insertar en la db
 var insertarjugador = function(datos) {
 	if( typeof (datos) === 'object') {
 		try {
@@ -7,7 +7,7 @@ var insertarjugador = function(datos) {
 			var db = Ti.Database.install('ApuntesDomino.sqlite','ApuntesDomino');
 
 			//insert
-			db.execute('INSERT INTO developers (Name1,Name2) VALUES(?,?)', datos.Pareja1, datos.Pareja2);
+			db.execute('INSERT INTO Jugadas (Name1,Name2) VALUES(?,?)', datos.Pareja1, datos.Pareja2);
 			db.close();
 
 			alert('Nueva Jugada insertada');

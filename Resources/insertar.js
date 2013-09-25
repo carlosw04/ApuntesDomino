@@ -71,14 +71,6 @@ var insertar = function(){
 	//retornamos el objeto de la ventana
 	return win;
 	
-	
-
-
-
-
-
-
-
 
 };
        
