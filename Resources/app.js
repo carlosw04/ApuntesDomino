@@ -23,7 +23,7 @@ var tab1 = Titanium.UI.createTab({
 //
 // creamos otro tab y le asignamos la ventana de listar
 //
-var win2 = listarWin();
+var win2 = listar();
 
 var tab2 = Titanium.UI.createTab({
     icon:'KS_nav_ui.png',
