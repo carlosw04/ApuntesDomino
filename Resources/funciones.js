@@ -4,7 +4,7 @@ var insertarjugador = function(datos) {
 		try {
 
 			//instalamos la bd
-			var db = Ti.Database.install('ApuntesDomino.sqlite', 'ApuntesDomino');
+			var db = Ti.Database.install('ApuntesDomino.sqlite','ApuntesDomino');
 
 			//insert
 			db.execute('INSERT INTO developers (Name1,Name2) VALUES(?,?)', datos.Pareja1, datos.Pareja2);
@@ -13,10 +13,13 @@ var insertarjugador = function(datos) {
 			alert('Nueva Jugada insertada');
 
 		} catch(e) {
-			alert(e);
+			alert(e +'|'+ 'Error en la aplicacion');
 		}
 
 	} else {
 		return false;
 	}
 };
+
+
+

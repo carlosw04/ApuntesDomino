@@ -13,13 +13,13 @@ var insertar = function(){
 	
 	win.add(vista);
 	
-	//logo de developers.do
+	//logo
 	var logo = Ti.UI.createImageView({
 		image : 'Image/logo.png',
 		width : 128,
 		height : 88,
 		top : 300,
-		center:{x:(win.width/2),y:50}
+		center:{x:(win.width/2),y:75}
 	});
 	
 	win.add(logo);
