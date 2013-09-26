@@ -13,6 +13,7 @@ var insertar = function(){
 	
 	win.add(vista);
 	
+	
 	//logo
 	var logo = Ti.UI.createImageView({
 		image : 'Image/logo.png',
@@ -36,6 +37,9 @@ var insertar = function(){
 		//creamos el boton de insertar
 	var insertar_btn = Ti.UI.createButton({title:'Insertar', width:200,height:70,center:{x:(win.width/2),y:320},borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
 	vista.add(insertar_btn);
+	
+	
+	
 
 	//click
 	insertar_btn.addEventListener('click',function(e){
@@ -43,7 +47,8 @@ var insertar = function(){
 			alert('Favor llenar el Nombre de las Parejas.');
 			return;
 		}
-
+		
+		
 		//insertamos dev en la bd
 		
 		insertarjugador({
@@ -51,6 +56,7 @@ var insertar = function(){
 			Name2:Pareja2.value,
 			
 		});
+		
 		
 		
 		

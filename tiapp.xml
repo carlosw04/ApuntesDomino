@@ -43,9 +43,7 @@
         </splash>
         <theme>default</theme>
     </mobileweb>
-    <modules>
-        <module platform="commonjs">ti.cloud</module>
-    </modules>
+    <modules/>
     <deployment-targets>
         <target device="iphone">false</target>
         <target device="ipad">false</target>

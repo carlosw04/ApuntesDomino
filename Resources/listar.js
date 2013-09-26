@@ -128,7 +128,7 @@ var eliminar = function(Jugada_id) {
 		//instalamos la db desde la carpeta resources
 		var db = Ti.Database.install('ApuntesDomino.sqlite', 'ApuntesDomino');
 
-		db.execute('DELETE FROM Jugadas WHERE JugadasId = ' + Jugada_id);
+		db.execute('DELETE FROM Jugadas WHERE JugadaId = ' + Jugada_id);
 
 		//close db
 		db.close();
@@ -160,11 +160,16 @@ var eliminar = function(Jugada_id) {
 	
 	//delete eventlistener
 	tableview.addEventListener('delete', function(e) {
-		var resultado = eliminar(e.rowData.dev_id);
+		//var resultado = eliminar(e.rowData.dev_id);
+		
+		alert('Me tocaron');
 	});
 	//eliminar click event
 	tableview.addEventListener('click', function(e) {
-		var resultado = eliminar(e.rowData.Jugada_id);
+		var resultado = eliminar(e.row.Jugada_id);
+		//alert('Me tocaron'+' '+ e.row.Jugada_id);
+		cargarLista();
+		
 	});
 	//listo click event
 	Listo_btn.addEventListener('click', function(e) {
