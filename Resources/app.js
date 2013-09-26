@@ -1,5 +1,5 @@
 //incluimos demas ventanas y utilidades
-Titanium.include('insertar.js','funciones.js','listar.js');
+Titanium.include('insertar.js','funciones.js','listar.js','apuntes.js');
 
 // background color del master window
 Titanium.UI.setBackgroundColor('#fff');
@@ -45,7 +45,7 @@ var tab2 = Titanium.UI.createTab({
 // Creamos otro tab para llevar la anotacion de las jugadas
 //
 
-var win3 = listar();
+var win3 = apuntes();
 
 var tab3 = Ti.UI.createTab({
 	 icon:'Image/Tab3.png',
