@@ -27,13 +27,43 @@ var tbl_data =[
 
 //Crear la primera seccion para la primera pareja
 
-var section1 = Ti.UI.createTableViewSection({headerTitle:'Pareja1'});
+var section1 = Ti.UI.createTableViewSection({
+	headerTitle:'Pareja1',
+	font : {
+			fontSize : 20,
+			fontWeight : 'bold'
+			},
+	
+	
+	});
 
 
 // Creamos la segunda seccion para la segunda pareja
 
-var section2 = Ti.UI.createTableViewSection({headerTitle:'Pareja2'});
+var section2 = Ti.UI.createTableViewSection({
+	
+	headerTitle :'Pareja2',
+	font : {
+				fontSize : 20,
+				fontweight : 'bold'
+					
+			},
+	
+	});
 
+//creamos el tableview1
+			var tableview1 = Ti.UI.createTableView({
+			minRowHeight : 60,
+			maxRowHeight : 70,
+			editable : true,
+			data: [section1,section2],
+			width:'100%',
+			
+			});
+
+
+
+win.add(tableview1);	
 
 // Llenamos cada seccion con sus datos
 
@@ -47,12 +77,23 @@ var filas = db.execute('SELECT * FROM Jugadas');
 		//iteramos cada resultado
 		while(filas.isValidRow()) {
 
-				section1.add(Ti.Ui.createTableViewRow({
-					
-					title: filas.fieldByName('JugadaId')
-					
-				}));
+						
+			var arreglo1 = [];
+			
+			var arreglo2 = [];
+						
+			//Creamos los row para cada seccion
+			var row1 = Ti.UI.createTableViewRow({
+				height : 'auto',
+				textAlign : 'left',
+				width : '100%',
+				style: Ti.UI.INPUT_BUTTONMODE_ONBLUR
 				
+			});	
+			
+			//asignamos el id a cada fila
+			row1.Jugada_id = filas.fieldByName('JugadaId');				
+						
 								
 				//Llenar la primera seccion de datos
 				section1.add(Ti.UI.createTableViewRow({
@@ -86,7 +127,11 @@ var filas = db.execute('SELECT * FROM Jugadas');
 			}));
 			
 			
+			//arreglo1.push(section1);
 			
+			//row1.add(Lblsection1.title);
+			
+			//section1.add(row1);
 			
 			filas.next();
 
@@ -96,22 +141,14 @@ var filas = db.execute('SELECT * FROM Jugadas');
 	db.close();
 
 	tableview1.data=[section1,section2];
+	//tableview1.data = arreglo1;
 };
 
 	
 
-//creamos el tableview1
-	var tableview1 = Ti.UI.createTableView({
-		minRowHeight : 60,
-		maxRowHeight : 70,
-		editable : true,
-		data: [section1,section2],
-		width:'100%',
-			
-	});
 
 //creamos el tableview2
-	var tableview = Ti.UI.createTableView({
+	var tableview2 = Ti.UI.createTableView({
 		minRowHeight : 60,
 		maxRowHeight : 70,
 		editable : true,
@@ -119,7 +156,7 @@ var filas = db.execute('SELECT * FROM Jugadas');
 		
 	});
 
-win.add(tableview1);	
+
 
 
 win.addEventListener('focus', function(e) {
