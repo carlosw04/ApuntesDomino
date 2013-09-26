@@ -18,7 +18,7 @@ var insertar = function(){
 		image : 'Image/logo.png',
 		width : 128,
 		height : 88,
-		top : 10,
+		top : 20,
 		center:{x:(win.width/2),y:320}
 	});
 	
@@ -27,7 +27,7 @@ var insertar = function(){
 	// Creamos Los FieldSet para meter los datos :D
 	
 	var Pareja1 = Ti.UI.createTextField({clearOnEdit:true,autocorrect:true, hintText:'Primera Pareja',width:300,height:75,top:110,left:10,borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
-	var Pareja2 = Ti.UI.createTextField({clearOnEdit:true,autocorrect:true, hintText:'Segunda Pareja',width:300,height:75,top:190,left:10,borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
+	var Pareja2 = Ti.UI.createTextField({clearOnEdit:true,autocorrect:true, hintText:'Segunda Pareja',width:300,height:75,top:200,left:10,borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
 	
 	vista.add(Pareja1);
 	vista.add(Pareja2);
