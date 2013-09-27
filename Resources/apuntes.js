@@ -83,7 +83,7 @@ var filas = db.execute('SELECT * FROM Apuntes WHERE JugadaId =' + Jugada_id);
 			var arreglo2 = [];
 						
 			//Creamos los row para cada seccion
-			var row1 = Ti.UI.createTableViewRow({
+			    var row = Ti.UI.createTableViewRow({
 				height : 'auto',
 				textAlign : 'left',
 				width : '100%',
@@ -92,11 +92,11 @@ var filas = db.execute('SELECT * FROM Apuntes WHERE JugadaId =' + Jugada_id);
 			});	
 			
 			//asignamos el id a cada fila
-			row1.Jugada_id = filas.fieldByName('JugadaId');				
+			row.Jugada_id = filas.fieldByName('JugadaId');				
 						
 								
 				//Llenar la primera seccion de datos
-				section1.add(Ti.UI.createTableViewRow({
+				var punto1 = Ti.UI.createLabel({
 				title:filas.fieldByName('Puntos_P1'),
 				width:'auto',
 				height : 'auto',
@@ -108,7 +108,7 @@ var filas = db.execute('SELECT * FROM Apuntes WHERE JugadaId =' + Jugada_id);
 					fontWeight : 'bold'
 				},
 				color : '#000'
-			}));
+			});
 	
 			
 				//Llenar la segunda seccion de datos
@@ -129,9 +129,9 @@ var filas = db.execute('SELECT * FROM Apuntes WHERE JugadaId =' + Jugada_id);
 			
 			//arreglo1.push(section1);
 			
-			//row1.add(Lblsection1.title);
+			row.add(punto1);
 			
-			//section1.add(row1);
+			arreglo1.push(row);
 			
 			filas.next();
 
@@ -140,6 +140,7 @@ var filas = db.execute('SELECT * FROM Apuntes WHERE JugadaId =' + Jugada_id);
 	filas.close();
 	db.close();
 
+	section1.add(arreglo1);
 	tableview1.data=[section1,section2];
 	//tableview1.data = arreglo1;
 };
