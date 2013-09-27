@@ -67,11 +67,11 @@ win.add(tableview1);
 
 // Llenamos cada seccion con sus datos
 
-var cargarsection = function(){
+var cargarsection = function(Jugada_id){
 
 var db = Ti.Database.install('ApuntesDomino.sqlite', 'ApuntesDomino');
 		
-var filas = db.execute('SELECT * FROM Jugadas');
+var filas = db.execute('SELECT * FROM Apuntes WHERE JugadaId =' + Jugada_id);
 		
 		
 		//iteramos cada resultado
@@ -97,7 +97,7 @@ var filas = db.execute('SELECT * FROM Jugadas');
 								
 				//Llenar la primera seccion de datos
 				section1.add(Ti.UI.createTableViewRow({
-				title:filas.fieldByName('Name1'),
+				title:filas.fieldByName('Puntos_P1'),
 				width:'auto',
 				height : 'auto',
 				left : 15,
@@ -113,7 +113,7 @@ var filas = db.execute('SELECT * FROM Jugadas');
 			
 				//Llenar la segunda seccion de datos
 				section2.add(Ti.UI.createTableViewRow({
-				title:filas.fieldByName('Name2'),
+				title:filas.fieldByName('Puntos_P2'),
 				width:'auto',
 				height : 'auto',
 				left : 15,
@@ -161,7 +161,7 @@ var filas = db.execute('SELECT * FROM Jugadas');
 
 win.addEventListener('focus', function(e) {
 		//cargamos la lista
-		cargarsection();
+		cargarsection(1);
 	});
 	
 	
