@@ -23,8 +23,8 @@ view3.add(culo2);
 //////////
 	var vista = Ti.UI.createScrollableView({
 		backgroundColor : 'transparent', 
-		//width: 320 ,
-		//height:480,
+		width: '100%' ,
+		height:'100%',
 		//top:5,
 		views: [view1,view2,view3]
 		

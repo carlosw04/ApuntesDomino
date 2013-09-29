@@ -152,18 +152,7 @@ var eliminar = function(Jugada_id) {
 		cargarLista();
 	});
 	
-/*	tableview.btn_eliminar.addEventListener('click',function(e){
-		
-		eliminar(e.rowData.dev_id);
-		
-	});*/
-	
-	//delete eventlistener
-	tableview.addEventListener('delete', function(e) {
-		//var resultado = eliminar(e.rowData.dev_id);
-		
-		alert('Me tocaron');
-	});
+
 	//eliminar click event
 	tableview.addEventListener('click', function(e) {
 		var resultado = eliminar(e.row.Jugada_id);
@@ -171,11 +160,7 @@ var eliminar = function(Jugada_id) {
 		cargarLista();
 		
 	});
-	//listo click event
-	Listo_btn.addEventListener('click', function(e) {
-		win.rightNavButton = Eliminar_btn;
-		tableview.editing = false;
-	});
+	
 
 	//retornamos el objeto de la ventana
 	return win;
