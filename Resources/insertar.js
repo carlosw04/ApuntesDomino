@@ -4,7 +4,9 @@ var insertar = function(){
 	var win = Ti.UI.createWindow({
 		
 		title: 'Insertar',
-		backgroundColor : '#fff'
+		backgroundColor : '#fff',
+		width: '100%' ,
+		height:'100%'
 		
 	});
 	

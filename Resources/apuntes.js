@@ -13,49 +13,23 @@ var win_apuntes = Ti.UI.createWindow({
 	
 		
 });	
-	
-// Esta es una vista para probar despues	
-	var vista  = Ti.UI.createScrollView({
-		
-		
-	});
-	
-	
 
 
-//Crear la primera seccion para la primera pareja
-
-var section1 = Ti.UI.createTableViewSection({
-	headerTitle:'Pareja1',
-	font : {
-			fontSize : 20,
-			fontWeight : 'bold'
-			},
+	var Punto1 = Ti.UI.createTextField({clearOnEdit:true,enableReturnKey:true,keyboardType:Ti.UI.KEYBOARD_NUMBER_PAD,font:{size:12},hintText:'Primera Pareja',width:100,height:75,left:10,center:{y:50},borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
+	var Punto2 = Ti.UI.createTextField({clearOnEdit:true,keyboardType:Ti.UI.KEYBOARD_NUMBER_PAD,font:{size:12},hintText:'Segunda Pareja',width:100,height:75,right:10,center:{y:50},borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
 	
-	
-	});
 
-
-// Creamos la segunda seccion para la segunda pareja
-
-var section2 = Ti.UI.createTableViewSection({
-	
-	headerTitle :'Pareja2',
-	font : {
-				fontSize : 20,
-				fontweight : 'bold'
-					
-			},
-	
-	});
+	win_apuntes.add(Punto1);
+	win_apuntes.add(Punto2);
 
 //creamos el tableview1
 			var tableview = Ti.UI.createTableView({
 			minRowHeight : 60,
 			maxRowHeight : 70,
 			editable : true,
-			data: [section1,section2],
+			//data: [section1,section2],
 			width:'100%',
+			top : 150
 			
 			});
 
@@ -69,20 +43,35 @@ tableview.setData(getTableData(jugada_id));
 
 
 
-
-
-
-
 Ti.App.addEventListener('app:updateTables', function() {
 		tableview.setData(getTableData(Jugada_id));
 	});
 
 
-
+Punto1.addEventListener("return",function(e){
+	insdata(jugada_id,Punto1.value,Punto2.value);
+	tableview.setData(getTableData(jugada_id));
+	
+	
+		
+	});
 	
 	
 return win_apuntes;
 };
+
+
+var insdata = function(_id,punto1,punto2){
+	
+	var db = require('db');
+	
+	var resultado = db.insapuntes(_id,punto1,punto2);
+	
+	
+};
+
+
+
 
 var getTableData = function(Jugada_id) {
 	var db = require('db');
@@ -95,6 +84,7 @@ var getTableData = function(Jugada_id) {
 	var todoapuntes = db.selectapuntes(Jugada_id);
 	
 	for (var i = 0; i < todoapuntes.length; i++) {
+		
 		data1[i] = Ti.UI.createTableViewRow({
 			id: todoapuntes[i].id,
 			title: todoapuntes[i].item,

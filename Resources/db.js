@@ -18,3 +18,14 @@ exports.selectapuntes = function(_id) {
 	db.close();
 	return retData;
 };
+
+
+
+exports.insapuntes = function(_id,punto1,punto2){
+	
+	var db = Ti.Database.install('ApuntesDomino.sqlite', 'ApuntesDomino');
+	var rows = db.execute('INSERT INTO Apuntes(JugadaId,Puntos_P1,Puntos_P2) VALUES (?,?,?)', _id,punto1,punto2);
+	
+	db.close();
+	
+};
