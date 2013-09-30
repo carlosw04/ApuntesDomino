@@ -15,8 +15,8 @@ var win_apuntes = Ti.UI.createWindow({
 });	
 
 
-	var Punto1 = Ti.UI.createTextField({clearOnEdit:true,enableReturnKey:true,keyboardType:Ti.UI.KEYBOARD_NUMBER_PAD,font:{size:12},hintText:'Primera Pareja',width:100,height:75,left:10,center:{y:50},borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
-	var Punto2 = Ti.UI.createTextField({clearOnEdit:true,keyboardType:Ti.UI.KEYBOARD_NUMBER_PAD,font:{size:12},hintText:'Segunda Pareja',width:100,height:75,right:10,center:{y:50},borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
+	var Punto1 = Ti.UI.createTextField({clearOnEdit:true,enableReturnKey:true,keyboardType:Ti.UI.KEYBOARD_NUMBER_PAD,font:{size:14},hintText:'Primera Pareja',width:100,height:75,left:10,center:{y:50},borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
+	var Punto2 = Ti.UI.createTextField({clearOnEdit:true,enableReturnKey:true,keyboardType:Ti.UI.KEYBOARD_NUMBER_PAD,font:{size:14},hintText:'Segunda Pareja',width:100,height:75,right:10,center:{y:50},borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED});
 	
 
 	win_apuntes.add(Punto1);
@@ -26,10 +26,10 @@ var win_apuntes = Ti.UI.createWindow({
 			var tableview = Ti.UI.createTableView({
 			minRowHeight : 60,
 			maxRowHeight : 70,
-			editable : true,
+			editable : false,
 			//data: [section1,section2],
 			width:'100%',
-			top : 150
+			top : 100
 			
 			});
 
@@ -49,6 +49,14 @@ Ti.App.addEventListener('app:updateTables', function() {
 
 
 Punto1.addEventListener("return",function(e){
+	insdata(jugada_id,Punto1.value,Punto2.value);
+	tableview.setData(getTableData(jugada_id));
+	
+	
+		
+	});
+	
+Punto2.addEventListener("return",function(e){
 	insdata(jugada_id,Punto1.value,Punto2.value);
 	tableview.setData(getTableData(jugada_id));
 	
@@ -79,13 +87,15 @@ var getTableData = function(Jugada_id) {
 	var data1 = []; //new
 	var data2 = []; //new
 	var section = Ti.UI.createTableViewSection({headerTitle :'Pareja1',}); //new
-	var section2 = Ti.UI.createTableViewSection({headerTitle :'Pareja2',}); //new
+	var section2 = Ti.UI.createTableViewSection({headerTitle :'Pareja2'}); //new
 	var row = null;
 	var todoapuntes = db.selectapuntes(Jugada_id);
 	
 	for (var i = 0; i < todoapuntes.length; i++) {
 		
-		data1[i] = Ti.UI.createTableViewRow({
+		if (todoapuntes[i].item > 0 || todoapuntes[i].item == !null ) {
+			
+			data1[i] = Ti.UI.createTableViewRow({
 			id: todoapuntes[i].id,
 			title: todoapuntes[i].item,
 			color: '#000',
@@ -93,8 +103,13 @@ var getTableData = function(Jugada_id) {
 				fontWeight: 'bold'	
 			}
 		});
+			section.add(data1[i]); //new
+		};
 		
-		data2[i] = Ti.UI.createTableViewRow({ //new
+	
+		if (todoapuntes[i].item2 > 0 || todoapuntes[i].item2 == !null ) {
+			
+			data2[i] = Ti.UI.createTableViewRow({ //new
 			id: todoapuntes[i].id,
 			title: todoapuntes[i].item2,
 			color: '#000',
@@ -102,10 +117,13 @@ var getTableData = function(Jugada_id) {
 				fontWeight: 'bold'	
 			}
 		});
+		section2.add(data2[i]); //new
+		};
+		
 		//data.push(row);
 		
-		section.add(data1[i]); //new
-		section2.add(data2[i]); //new
+		
+		
 		
 		data[0] = section;
 		data[1]= section2;

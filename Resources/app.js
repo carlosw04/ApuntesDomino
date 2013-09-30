@@ -1,6 +1,13 @@
 //incluimos demas ventanas y utilidades
 Titanium.include('insertar.js','funciones.js','listar.js','apuntes.js');
 
+//Variable global para el id de la jugada activa
+
+//Ti.App.JugadaAct = Jugadaactiva(0);
+
+
+
+
 // background color del master window
 Titanium.UI.setBackgroundColor('#fff');
 
@@ -66,3 +73,9 @@ tabGroup.addTab(tab2);
 tabGroup.addTab(tab3);
 // abrimos el tabgroup
 tabGroup.open();
+
+
+
+
+
+

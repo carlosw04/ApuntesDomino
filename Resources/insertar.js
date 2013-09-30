@@ -1,25 +1,33 @@
 
+
 var insertar = function(){
+
+Ti.App.JugadaAct = jx();
 	
 	var win = Ti.UI.createWindow({
 		
 		title: 'Insertar',
 		backgroundColor : '#fff',
 		width: '100%' ,
-		height:'100%'
+		height:'auto'
 		
 	});
 	
 //////////
-var view1 = Ti.UI.createView({ backgroundColor:'#123' });
+var view1 = Ti.UI.createView({ backgroundColor:'#123',height:Titanium.Platform.displayCaps.platformHeight});
 var view2 = Ti.UI.createView({ backgroundColor:'#246' });
 var view3 = Ti.UI.createView({ backgroundColor:'#48b' });
  
-var culo = Ti.UI.createImageView({image:'http://static.informe21.com/cdn/farfuture/0M7GNaWnJASSqZp57tStGkQbs2xzuo4aAVA-f7MO8j4/mtime:1354562679/sites/default/files/imagecache/600x400/images/culo-brasil-miss-bumbum-2012-carine-6.jpg'});
+var culo = Ti.UI.createImageView({image:'http://static.betazeta.com/www.ferplei.com/up/2011/03/hincha11.jpg'});
 var culo2 = Ti.UI.createImageView({image:'http://deadfix.com/wp-content/uploads/2011/09/culo.png'});
 
-
-
+var labelact = Ti.UI.createLabel({
+	text: 'Esta es la Partida' + Ti.App.JugadaAct,
+	top : 100,
+	right : 40
+		
+});
+view2.add(labelact);
 view2.add(culo);
 view3.add(culo2);
 //////////
@@ -27,8 +35,10 @@ view3.add(culo2);
 		backgroundColor : 'transparent', 
 		width: '100%' ,
 		height:'100%',
-		//top:5,
+		layout:'vertical',
+		showPagingControl: true,
 		views: [view1,view2,view3]
+		
 		
 		 });
 	
@@ -106,3 +116,20 @@ view3.add(culo2);
 
 };
        
+
+
+ var jx =function(){
+	
+	var db = require('db');
+	
+	var resultado = db.jugadaact();
+	
+	var xxx= resultado[0].id;
+	
+	
+	
+	
+	return xxx;
+	
+};
+
