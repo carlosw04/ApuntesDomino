@@ -13,7 +13,39 @@ Ti.App.JugadaAct = jx();
 		
 	});
 	
-//////////
+/////////// prueba
+
+var listView = Ti.UI.createListView();
+var sections = [];
+
+var fruitSection = Ti.UI.createListSection({ headerTitle: 'Fruits'});
+var fruitDataSet = [
+    {properties: { title: 'Apple'}},
+    {properties: { title: 'Banana'}},
+];
+fruitSection.setItems(fruitDataSet);
+sections.push(fruitSection);
+
+var vegSection = Ti.UI.createListSection({ headerTitle: 'Vegetables'});
+var vegDataSet = [
+    {properties: { title: 'Carrots'}},
+    {properties: { title: 'Potatoes'}},
+];
+vegSection.setItems(vegDataSet);
+sections.push(vegSection);
+
+listView.sections = sections;
+
+
+var fishSection = Ti.UI.createListSection({ headerTitle: 'Fish'});
+var fishDataSet = [
+    {properties: { title: 'Cod'}},
+    {properties: { title: 'Haddock'}},
+];
+fishSection.setItems(fishDataSet);
+listView.appendSection(fishSection);
+
+////////// prueba
 var view1 = Ti.UI.createView({ backgroundColor:'#123',height:Titanium.Platform.displayCaps.platformHeight});
 var view2 = Ti.UI.createView({ backgroundColor:'#246' });
 var view3 = Ti.UI.createView({ backgroundColor:'#48b' });
@@ -28,8 +60,8 @@ var labelact = Ti.UI.createLabel({
 		
 });
 view2.add(labelact);
-view2.add(culo);
-view3.add(culo2);
+//view2.add(culo);
+view3.add(listView);
 //////////
 	var vista = Ti.UI.createScrollableView({
 		backgroundColor : 'transparent', 
@@ -124,12 +156,14 @@ view3.add(culo2);
 	
 	var resultado = db.jugadaact();
 	
-	var xxx= resultado[0].id;
+	if (resultado.length > 0) {
+		
+	var brayan = resultado[0].id;
+		
+	};
 	
 	
-	
-	
-	return xxx;
+	return brayan;
 	
 };
 

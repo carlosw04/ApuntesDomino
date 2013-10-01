@@ -34,17 +34,16 @@ exports.insapuntes = function(_id,punto1,punto2){
 exports.jugadaact = function(){
 	
 	var db = Ti.Database.install('ApuntesDomino.sqlite', 'ApuntesDomino');
-	var culo= [];
+	var data= [];
 	var rows = db.execute('SELECT * FROM Jugadas WHERE IsActive = 1');
 	
 	while (rows.isValidRow()) {
-		culo.push({id:rows.fieldByName('JugadaId')});
-		//retData.push({item:rows.fieldByName('Puntos_P2'), id:rows.fieldByName('JugadaId')});
-		rows.next();
+		data.push({id:rows.fieldByName('JugadaId')});
+			rows.next();
 	}
 	db.close();
 	
-	return culo;
+	return data;
 };
 
 
